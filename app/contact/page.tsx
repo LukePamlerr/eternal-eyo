@@ -98,14 +98,14 @@ export default function Contact() {
           {status && <p className="mt-4 text-center">{status}</p>}
           <div className="mt-6 flex justify-center space-x-4">
             <motion.a
-              href="https://discord.gg/your-discord"
+              href="https://discord.gg/BA433n7Cef"
               whileHover={{ scale: 1.1 }}
               className="bg-light-green text-black px-6 py-3 rounded-full hover:bg-gradient-to-r hover:from-light-green hover:to-green-400 transition-all duration-300"
             >
               Discord
             </motion.a>
             <motion.a
-              href="mailto:eyo@example.com"
+              href="mailto:contact@meana.xyz"
               whileHover={{ scale: 1.1 }}
               className="bg-light-green text-black px-6 py-3 rounded-full hover:bg-gradient-to-r hover:from-light-green hover:to-green-400 transition-all duration-300"
             >
