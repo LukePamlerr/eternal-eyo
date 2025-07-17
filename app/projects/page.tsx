@@ -3,26 +3,26 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export const metadata: Metadata = {
-  title: 'Projects | meana.xyz',
+  title: 'Projects',
   description: 'Explore Eyo’s Discord bot projects for ERLC and communities.',
 };
 
 export default function Projects() {
   const projects = [
     {
-      title: 'ERLC Cord - Coming Late 2025',
+      title: 'ERLC Private Server Bot',
       description: 'A robust bot for ERLC private servers with role management, in-game integration, and moderation tools.',
       video: '/videos/ScreenRecording_07-17-2025_00-15-46_1.mp4',
     },
     {
-      title: 'Creative - WIP',
+      title: 'General Discord Bot',
       description: 'A versatile bot for Discord communities with fun commands, utilities, and server management features.',
       image: '/images/bot-image-placeholder.jpg',
     },
   ];
 
   return (
-    <div className="min-h-screen bg-black text-light-green py-20">
+    <div className="min-h-screen py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
