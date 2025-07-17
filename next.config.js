@@ -1,9 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  images: {
-    domains: ['res.cloudinary.com'],
-  },
-}
+  headers: async () => [
+    {
+      source: '/videos/:path*',
+      headers: [
+        { key: 'Content-Type', value: 'video/mp4' },
+        { key: 'Content-Disposition', value: 'inline' },
+      ],
+    },
+  ],
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
