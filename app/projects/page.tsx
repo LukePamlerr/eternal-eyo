@@ -1,27 +1,23 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Cloudinary } from '@cloudinary/url-gen';
-import { fill } from '@cloudinary/url-gen/actions/resize';
 
 export const metadata: Metadata = {
   title: 'Projects | meana.xyz',
   description: 'Explore Eyo’s Discord bot projects for ERLC and communities.',
 };
 
-const cld = new Cloudinary({ cloud: { cloudName: 'your-cloud-name' } });
-
 export default function Projects() {
   const projects = [
     {
-      title: 'ERLC Cord - WIP',
+      title: 'ERLC Cord - Coming Late 2025',
       description: 'A robust bot for ERLC private servers with role management, in-game integration, and moderation tools.',
-      video: cld.video('portfolio-video').resize(fill().width(800)).toURL(),
+      video: '/videos/ScreenRecording_07-17-2025_00-15-46_1.mp4',
     },
     {
       title: 'Creative - WIP',
       description: 'A versatile bot for Discord communities with fun commands, utilities, and server management features.',
-      image: '/bot-image-placeholder.jpg',
+      image: '/images/bot-image-placeholder.jpg',
     },
   ];
 
@@ -43,13 +39,22 @@ export default function Projects() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(152, 255, 152, 0.5)' }}
-              className="bg-gray-900 p-6 rounded-lg shadow-lg"
+              whileHover={{ scale: 1.05, rotateX: 5, rotateY: 5, boxShadow: '0 0 30px rgba(152, 255, 152, 0.7)' }}
+              className="bg-gray-900 p-6 rounded-lg shadow-lg relative overflow-hidden"
             >
               <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
               <p className="mb-4">{project.description}</p>
               {project.video ? (
-                <video controls className="w-full rounded-lg" src={project.video} />
+                <>
+                  <video controls className="w-full rounded-lg" src={project.video} poster="/video-poster.jpg">
+                    <source src={project.video} type="video/mp4" />
+                  </video>
+                  <motion.div
+                    className="absolute inset-0 border-4 border-light-green opacity-0"
+                    whileHover={{ opacity: 0.5 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </>
               ) : (
                 <Image src={project.image} alt={project.title} width={800} height={450} className="w-full rounded-lg" />
               )}
